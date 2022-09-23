@@ -4,26 +4,25 @@ let URLDOMAIN = "https://witty-rock-00a315803.1.azurestaticapps.net/"
 
 
 module.exports = async function (context, req, databaseIN) {
-    let password = context.bindingData.password;
     let page = context.bindingData.page;
 
+
+    let myJSON = ""
     if (page == false){
         URLDOMAIN = "https://witty-rock-00a315803.1.azurestaticapps.net/showLinks.html/"
-        JSONString = btoa(JSON.stringify(filterNew(databaseIN)))
+        myJSON = (filterNew(databaseIN))
         
     }
     else{
         URLDOMAIN = "https://witty-rock-00a315803.1.azurestaticapps.net/index.html/"
-        JSONString = btoa(JSON.stringify(filterSubmitted(databaseIN)))
+        myJSON = (filterSubmitted(databaseIN))
     }
 
-    
-
-    
-    let time = new Date() / 1
-    
-    context.res = { body: `<meta http-equiv=\"refresh\" content=\"0; url=${URLDOMAIN}?${JSONString}?${time}" />`, headers: { "Content-Type": "text/html" } };
-
+    context.res = {
+        status: 200, 
+        body: myJSON,
+        headers: {'Content-Type': 'application/json'}
+    }
 }
 
 function filterSubmitted(JSONArray) {
@@ -86,9 +85,3 @@ function filterNew(JSONArray) {
     }
     return filteredArray;
 }
-
-
-
-
-
-
