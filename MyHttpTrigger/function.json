@@ -9,7 +9,7 @@
         "post"
       ],
       "authLevel": "anonymous",
-      "route": "{password}"
+      "route": "{page}"
     },
     {
       "name": "res",
@@ -22,7 +22,7 @@
       "databaseName": "juri_km",
       "collectionName": "km_reg",
       "connectionStringSetting": "connectionStringSetting",
-      "sqlQuery": "SELECT CONCAT(c.surName, ' ',c.lastName) as name, c.vehicleCode, c.km, c.timeID, c.vehicleDescription from c where c.status = 'submitted' ORDER BY c.timeID DESC",
+      "sqlQuery": "SELECT * from c ORDER BY c.timeID DESC",
       "direction": "in"
     },
     {
