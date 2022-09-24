@@ -35,7 +35,7 @@ function filterSubmitted(JSONArray) {
             }
 
             let identifier = JSONArray[i].vehicleCode;
-            JSONArray[i]["name"] = JSONArray[i].surName + " " + JSONArray[i].lastName
+            JSONArray[i]["name"] = JSONArray[i].firstName + " " + JSONArray[i].lastName
             filteredArray.push(JSONArray[i]);
             JSONArray[i] = "REMOVE";
 
@@ -64,9 +64,8 @@ function filterNew(JSONArray) {
             }
 
             let identifier = JSONArray[i].vehicleCode;
-            JSONArray[i]["name"] = JSONArray[i].surName + " " + JSONArray[i].lastName
-            // https://jolly-plant-07b53cc03.1.azurestaticapps.net/?{surname}?{lastname}?{vehicleCode}?0?2V5IVYPQ3T?{vehicleDescription}
-            JSONArray[i]["link"] = "https://jolly-plant-07b53cc03.1.azurestaticapps.net/?" + JSONArray[i].surName + "?" + JSONArray[i].lastName + "?" + JSONArray[i].vehicleCode + "?" + JSONArray[i].km + "?" + JSONArray[i].transactionID + "?" + JSONArray[i].vehicleDescription
+            JSONArray[i]["name"] = JSONArray[i].firstName + " " + JSONArray[i].lastName
+            JSONArray[i]["link"] = "https://jolly-plant-07b53cc03.1.azurestaticapps.net/?" + JSONArray[i].firstName + "?" + JSONArray[i].lastName + "?" + JSONArray[i].vehicleCode + "?" + JSONArray[i].km + "?" + JSONArray[i].transactionID + "?" + JSONArray[i].vehicleDescription
 
 
 
